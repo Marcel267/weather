@@ -1,11 +1,38 @@
+import Toggle from "./components/Toggle";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { ArrowPathIcon } from "@heroicons/react/24/solid";
+import { useEffect } from "react";
 
-function App() {
+export default function App() {
+  const getCatFact = () => {
+    return axios.get(`https://catfact.ninja/fact`).then((res) => res.data);
+  };
+
+  const {
+    status,
+    error,
+    data: catFact,
+    isFetching,
+  } = useQuery({
+    queryKey: ["catFact"],
+    queryFn: getCatFact,
+    refetchOnWindowFocus: false, // default: true
+  });
+  useEffect(() => {
+    console.log(catFact);
+  }, [catFact]);
 
   return (
     <>
-    <h1>Hello World</h1>
+      <main className="relative flex min-h-screen items-center justify-center bg-slate-200 text-2xl text-slate-900 dark:bg-slate-800 dark:text-slate-100">
+        <section className="min-h-[20rem] w-80 rounded-xl bg-slate-100 p-5 dark:bg-slate-700">
+          {status == "loading" || isFetching ? "Loading..." : catFact?.fact}
+          {status == "error" ? JSON.stringify(error) : null}
+          {/* {catFact?.fact} */}
+        </section>
+        <Toggle />
+      </main>
     </>
-  )
+  );
 }
-
-export default App

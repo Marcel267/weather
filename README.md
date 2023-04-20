@@ -5,3 +5,4 @@
 - Vite - React + Typescript
 - TailwindCSS
 - OpenWeather API
+- Heroicons
