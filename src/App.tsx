@@ -1,7 +1,6 @@
 import Toggle from "./components/Toggle";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { ArrowPathIcon } from "@heroicons/react/24/solid";
 import { useEffect } from "react";
 
 export default function App() {
@@ -26,10 +25,9 @@ export default function App() {
   return (
     <>
       <main className="relative flex min-h-screen items-center justify-center bg-slate-200 text-2xl text-slate-900 dark:bg-slate-800 dark:text-slate-100">
-        <section className="min-h-[20rem] w-80 rounded-xl bg-slate-100 p-5 dark:bg-slate-700">
+        <section className="min-h-[20rem] w-80 rounded-xl bg-slate-100 p-5 shadow-md dark:bg-slate-700">
           {status == "loading" || isFetching ? "Loading..." : catFact?.fact}
           {status == "error" ? JSON.stringify(error) : null}
-          {/* {catFact?.fact} */}
         </section>
         <Toggle />
       </main>
