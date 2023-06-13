@@ -1,5 +1,5 @@
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 
 export default function Toggle() {
   const [theme, setTheme] = useState<string>();
