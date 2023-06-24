@@ -39,8 +39,10 @@ export default function Toggle() {
     >
       {theme == "dark" ? (
         <SunIcon className="h-7 w-7" />
+        // <span className="h-7 w-8">🌞</span>
       ) : (
         <MoonIcon className="h-7 w-7" />
+        // <span className="h-7 w-7">🌜</span>
       )}
     </button>
   );
