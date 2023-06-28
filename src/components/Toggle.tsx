@@ -1,7 +1,7 @@
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 import { useState, useLayoutEffect } from "react";
 
-export default function Toggle() {
+export const Toggle = () => {
   const [theme, setTheme] = useState<string>();
 
   /*
@@ -39,11 +39,11 @@ export default function Toggle() {
     >
       {theme == "dark" ? (
         <SunIcon className="h-7 w-7" />
-        // <span className="h-7 w-8">🌞</span>
       ) : (
+        // <span className="h-7 w-8">🌞</span>
         <MoonIcon className="h-7 w-7" />
         // <span className="h-7 w-7">🌜</span>
       )}
     </button>
   );
-}
+};
